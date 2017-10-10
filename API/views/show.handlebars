@@ -1,0 +1,81 @@
+
+
+<div >
+    <h1>Hi Im Here in {{#if location}}<button onclick="getLocation('{{location}}')" >X</button>{{/if}}</h1>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoXfsRzPpR7wfdfcfCc3ZZeWbMifHcvoc&sensor=false&callback=initialize"></script>
+</div>
+
+<div >
+     Address :<span id="address"></span>
+</div>
+
+<div >
+    Latitude :<span id="Latitude"> </span><br>
+    Longitude:<span id="Longitude"> </span>
+</div>
+
+<!--<script>
+    let latlng;
+    function getLocation(address) {
+        console.log("Im in",address);
+        /*let geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode( { 'address': address}, function(results, status) {
+
+
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                let latitude = results[0].geometry.location.lat();
+
+                let longitude = results[0].geometry.location.lng();
+                latlng = new google.maps.LatLng(latitude, longitude);
+
+                let map = new google.maps.Map(document.getElementById('map'), {
+                    center: latlng,
+                    zoom: 13
+                    //console.log(latitude, longitude);
+
+                });
+
+            }
+        });}
+    function  init(){
+        let map = new google.maps.Map(document.getElementById('map'), {
+            center: latlng,
+            zoom: 13
+        });*/
+    }
+
+
+
+
+</script>-->
+
+<script>
+    function getLocation(address) {
+        let Showaddres=document.getElementById("address");
+        Showaddres.innerHTML=address;
+        console.log("Im in",address);
+        let geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode( { 'address': address}, function(results, status) {
+
+
+
+            if (status == google.maps.GeocoderStatus.OK) {
+
+                let latitude = results[0].geometry.location.lat();
+
+                let longitude = results[0].geometry.location.lng();
+
+                console.log(latitude, longitude);
+                let ShowLatitude=document.getElementById("Latitude");
+                let ShowLongitude=document.getElementById("Longitude");
+                ShowLatitude.innerHTML=latitude;
+                ShowLongitude.innerHTML=longitude;
+            }
+
+        });
+
+    }
+</script>

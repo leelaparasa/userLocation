@@ -1,4 +1,4 @@
-var express = require('express'),
+let express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     mongoose = require('mongoose'),
@@ -6,7 +6,7 @@ var express = require('express'),
 
 
 
-var exphbs  = require('express-handlebars');
+let exphbs  = require('express-handlebars');
 
 
 
@@ -26,7 +26,7 @@ mongoose.connection.on('error',function(){
 /*//app.use(express.static(__dirname+'/public'));*/
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({"extended" : true}));
-var Schema = mongoose.Schema,
+let Schema = mongoose.Schema,
     userSchema = new Schema({
         username : String,
         location : {
@@ -35,7 +35,7 @@ var Schema = mongoose.Schema,
             longitude : String
         }
     });
-var userModel = mongoose.model('users',userSchema);
+let userModel = mongoose.model('users',userSchema);
 
 /*app.get('/result',function (req,res) {
     userModel.find({},function(err,data){
